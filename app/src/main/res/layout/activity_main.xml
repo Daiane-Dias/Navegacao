@@ -15,6 +15,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nosso_mapa" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/verimagem"
+            android:onClick="ExibirMapa"
+            tools:ignore="OnClick,UsingOnClickInXml"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vervetor"
+            android:onClick="ExibirMapa"
+            tools:ignore="OnClick,UsingOnClickInXml"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/verrua"
+            android:onClick="ExibirMapa"
+            tools:ignore="OnClick,UsingOnClickInXml"
+            />
         <com.esri.arcgisruntime.mapping.view.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"

@@ -3,8 +3,11 @@ package com.daiane.navegacao;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,19 +23,42 @@ import com.esri.arcgisruntime.mapping.view.MapView;
 public class MainActivity extends AppCompatActivity {
     private MapView mMapView;
     private LocationDisplay mLocationDisplay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mMapView = findViewById(R.id.mapView);
-        setupMap();
+        //setupMap();
         setupLocationDisplay();
         setupGPS();
     }
 
-    private void setupMap() {
+    @SuppressLint("NonConstantResourceId")
+    public void  ExibirMapa(View v){
+        Basemap.Type basemapType;
+        switch(v.getId())
+        {
+            case R.string.verimagem:
+                basemapType = Basemap.Type.IMAGERY;
+                break;
+            case R.string.vervetor :
+                basemapType = Basemap.Type.STREETS_VECTOR;
+                break;
+            case R.string.verrua:
+                basemapType = Basemap.Type.OPEN_STREET_MAP;
+                break;
+            default :
+                  basemapType = Basemap.Type.IMAGERY;
+                break;
+        }
+        setupMap(basemapType);
+    }
+    private void setupMap(Basemap.Type basemapType) {
+
         if (mMapView != null) {
-            Basemap.Type basemapType = Basemap.Type.STREETS_VECTOR;//Basemap.Type.OPEN_STREET_MAP
+            //Basemap.Type basemapType = Basemap.Type.IMAGERY;//Basemap.Type.STREETS_VECTOR;//Basemap.Type.OPEN_STREET_MAP;
+
             double latitude = -21.2526;
             double longitude = -43.1511;
             int levelOfDetail = 20;
