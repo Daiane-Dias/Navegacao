@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="vervetor" type="id">VerVetor</item>
+    <item name="verrua" type="id">VerRua</item>
+    <item name="verimagem" type="id">VerImagem</item>
+</resources>

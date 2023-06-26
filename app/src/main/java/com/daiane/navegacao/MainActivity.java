@@ -3,10 +3,8 @@ package com.daiane.navegacao;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -29,23 +27,47 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mMapView = findViewById(R.id.mapView);
-        //setupMap();
-        setupLocationDisplay();
+        setupMap();
+       setupLocationDisplay();
         setupGPS();
     }
 
-    @SuppressLint("NonConstantResourceId")
+    public Basemap.Type ExibirMapa(){
+        Button botaoImagem = (Button) findViewById(R.id.verimagem);
+        botaoImagem.setOnClickListener(view -> {
+        });
+
+        Button botaoVetor = (Button) findViewById(R.id.vervetor);
+      botaoVetor.setOnClickListener(view -> {
+      });
+
+
+        Button botaoRua = (Button) findViewById(R.id.verrua);
+        botaoRua.setOnClickListener(view -> {
+
+        });
+
+if(botaoImagem.callOnClick()) {
+    return Basemap.Type.IMAGERY;
+}
+else if(botaoVetor.callOnClick()) {
+            return Basemap.Type.IMAGERY;
+        }else{
+           return Basemap.Type.OPEN_STREET_MAP;
+        }
+    }
+  /*  @SuppressLint("NonConstantResourceId")
     public void  ExibirMapa(View v){
         Basemap.Type basemapType;
         switch(v.getId())
         {
-            case R.string.verimagem:
+            case R.id.verimagem:
                 basemapType = Basemap.Type.IMAGERY;
                 break;
-            case R.string.vervetor :
+            case R.id.vervetor :
                 basemapType = Basemap.Type.STREETS_VECTOR;
                 break;
-            case R.string.verrua:
+            case R.id.verrua:
                 basemapType = Basemap.Type.OPEN_STREET_MAP;
                 break;
             default :
@@ -53,11 +75,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         setupMap(basemapType);
-    }
-    private void setupMap(Basemap.Type basemapType) {
+    }*/
+    private void setupMap() {
 
         if (mMapView != null) {
             //Basemap.Type basemapType = Basemap.Type.IMAGERY;//Basemap.Type.STREETS_VECTOR;//Basemap.Type.OPEN_STREET_MAP;
+            Basemap.Type  basemapType = ExibirMapa();
 
             double latitude = -21.2526;
             double longitude = -43.1511;
@@ -127,5 +150,4 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "permissão recusada", Toast.LENGTH_SHORT).show();
         }
     }
-
 }

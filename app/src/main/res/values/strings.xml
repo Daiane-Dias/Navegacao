@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Navegacao</string>
-    <string name="nosso_mapa">Nosso mapa!</string>
-    <string name="vervetor">vervetor</string>
-    <string name="verrua">verrua</string>
-    <string name="verimagem">verimagem</string>
+    <string name="nosso_mapa">Nosso mapa</string>
+    <string name="ver_vetor">Ver Vetor</string>
+    <string name="ver_rua">Ver Rua</string>
+    <string name="ver_imagem">Ver Imagem</string>
 </resources>
